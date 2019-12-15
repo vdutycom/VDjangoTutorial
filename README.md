@@ -66,4 +66,55 @@ server {
         }
 
    }
-    
+7. 关于django的mysql链接错误解决：
+用uwsgi启动项目后，出现错误Error loading MySQLdb module.
+然后 pip install MySQL-python
+
+又出现错误：
+
+ModuleNotFoundError: No module named ‘ConfigParser’ 原因是MySQL-python不支持python3
+
+解决
+安装pymql：
+pip install pymysql
+django项目__inti__.py中添加以下代码
+import pymysql
+pymysql.install_as_MySQLdb()
+又会报错：设置uwsgi配置文件的home，home的路径为虚拟环境的路径，如下
+
+[uwsgi]
+
+home = /Users/yeluxing/Desktop/mydevelop/python/study/tutorial/env
+
+http = 0.0.0.0:8005 #ng里用proxy_pass
+
+socket=0.0.0.0:58005 #这个才是重点，ng里用uwsgi_pass
+
+module = tutorial.wsgi
+
+#项目的路径
+
+chdir = /Users/yeluxing/Desktop/mydevelop/python/study/tutorial2/tutorial
+
+wsgi-file = tutorial/wsgi.py
+
+processes = 4
+
+static-map = /static= /Users/yeluxing/Desktop/mydevelop/python/study/tutorial2/tutorial/webstatic
+
+stats = 127.0.0.1:9191
+
+启动又报错：
+
+django.core.exceptions.ImproperlyConfigured: mysqlclient 1.3.13 or newer is required; you have 0.9.3.
+https://www.cnblogs.com/dotnetcrazy/p/10779304.html
+
+就是更改django里的mysql 的base文件注解掉
+
+/Users/yeluxing/Desktop/mydevelop/python/study/tutorial/env/lib/python3.8/site-packages/django/db/backends/mysql/base.py
+
+if version < (1, 3, 13):
+
+    #raise ImproperlyConfigured('mysqlclient 1.3.13 or newer is required; you have %s.' % Database.__version__)
+
+    pass    
