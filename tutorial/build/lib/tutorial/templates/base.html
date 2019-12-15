@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>{% block title %}{% endblock %}</title>
+        
+    </head>
+    <body>
+    {% comment %} 这个img 这是静态资源配置 {% endcomment %}
+  <img src="{% static "img/timg.jpeg" %}"  style="width:100%;height:200px;" alt="My image">
+    <hr/>
+
+    {% block content %}
+    {% endblock %}
+
+    <hr/>
+ 
+    </body>
+</html>
+
+

@@ -1,0 +1,3 @@
+[console_scripts]
+tutorial_manage = manage:main
+

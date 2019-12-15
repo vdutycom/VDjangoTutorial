@@ -1,0 +1,11 @@
+LICENSE
+MANIFEST.in
+README.rst
+setup.py
+VDjangoTutorial.egg-info/PKG-INFO
+VDjangoTutorial.egg-info/SOURCES.txt
+VDjangoTutorial.egg-info/dependency_links.txt
+VDjangoTutorial.egg-info/entry_points.txt
+VDjangoTutorial.egg-info/requires.txt
+VDjangoTutorial.egg-info/top_level.txt
+tutorial/manage.py
