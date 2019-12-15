@@ -20,8 +20,15 @@ Quick start
 4. gunicorn启动项目 
 
  gunicorn tutorial.wsgi:application -b 127.0.0.1:58005 
+ 多进程：
+ gunicorn tutorial.wsgi:application -w 8 -k gthread -b 127.0.0.1:58005;
 
-6. UWsgi的nginx配置：
+
+6. uwsgi的nginx配置：
+
+uwsgi启动：
+uwsgi –ini tutorial_uwsgi.ini
+
 #django app
 
 upstream tutorial {
