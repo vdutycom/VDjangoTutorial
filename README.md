@@ -66,6 +66,7 @@ server {
         }
 
    }
+
 7. 关于django的mysql链接错误解决：
 用uwsgi启动项目后，出现错误Error loading MySQLdb module.
 然后 pip install MySQL-python
