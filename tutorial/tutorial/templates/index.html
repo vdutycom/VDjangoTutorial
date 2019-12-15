@@ -1,0 +1,9 @@
+ {% extends "base.html" %}
+ {% load static %}   
+
+{% block title %} {{ title }} {% endblock %}
+
+{% block content %}
+{{user.id }}-{{user.username}}, Welcome ! this is a test site!
+{% endblock%}
+

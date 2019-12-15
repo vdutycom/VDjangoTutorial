@@ -1,0 +1,25 @@
+  
+{% extends "./base.html" %}
+{% block title %} {{ title }} {% endblock %}
+
+{% block main %}
+    {% if title %}
+      <h1>{{ title }}</h1>
+    {% endif %}
+    <hr/>
+    <p>
+    {% if isPermission %}
+      {% if snippets %}
+          {% for snippet in snippets %}
+          <span> 日期：{{ snippet.created }}</span>
+            &nbsp;<span>code：{{  snippet.code }}</span></br>
+          {% endfor %}  
+      {% else %}
+        没有数据列表 
+      {% endif %}    
+      </p>
+     
+    {% else %}
+      没有权限！！！
+    {% endif %}
+{% endblock %}

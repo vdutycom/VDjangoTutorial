@@ -1,0 +1,19 @@
+{% extends "./base.html" %}
+
+{% block content %}
+{% if forms %}
+    <form action="{%url 'login'%}" method="post">  
+    {% csrf_token %} 
+
+    {{ forms.as_p }}
+        {% comment %} <p>用户名：<input type="text" name="username"></p> 
+        <p>密码：<input type="password"   name="password"></p>  {% endcomment %}
+        <input type="submit" value="提交"> 
+    </form>
+    {% else  %}
+        {% if msg%}
+        {{msg}}
+        {% endif %}
+{% endif %} 
+<p></p>
+{% endblock %}
